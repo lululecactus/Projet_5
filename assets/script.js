@@ -16,11 +16,12 @@ const slides = [
 		"tagLine":"Autocollants <span>avec découpe laser sur mesure</span>"
 	}
 ]
-
+//define variables
 const leftArrow = document.querySelector('.arrow_left');
-const rightArrow = document.querySelector('.arrow_right')
+const rightArrow = document.querySelector('.arrow_right');
+const dotsDiv = document.querySelector('.dots');
 
-
+// add a message in the console for the  click on the arrow
 leftArrow.addEventListener('click', () => {
 	console.log('you clicked on the left arrow!');
 })
@@ -28,3 +29,12 @@ leftArrow.addEventListener('click', () => {
 rightArrow.addEventListener('click', () => {
 	console.log('you clicked on the right arrow!');
 })
+
+//adding  dot on the slide
+for (let i = 0; i < slides.length; i++) {
+  const dotDiv = document.createElement('div');
+  dotDiv.className = "dot"; 
+  dotsDiv.appendChild(dotDiv);
+}
+
+ 
