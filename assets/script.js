@@ -37,4 +37,9 @@ for (let i = 0; i < slides.length; i++) {
   dotsDiv.appendChild(dotDiv);
 }
 
- 
+
+// select all the elements with dot class
+const allDots = document.querySelectorAll(".dot"); 
+// create the selected dot
+allDots[0].classList.add("dot_selected"); 
+
