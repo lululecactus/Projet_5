@@ -23,10 +23,11 @@ const rightArrow = document.querySelector(".arrow_right");
 const imageSlide = document.querySelector(".banner-img");
 const tagline = document.querySelector(".banner-tagline");
 const dots = document.querySelector(".dots");
-const allDots = document.querySelectorAll(".dot");
+
 
 // call the function when click on the arrows
 leftArrow.addEventListener('click',slidePrevious);
+
 rightArrow.addEventListener('click',slideNext); 
 
 // Create as many dots as slides in  the banner
@@ -37,6 +38,7 @@ for(let i = 0; i< slides.length; i++){
 }
  
 // add dot selected class to the elements with dot class
+const allDots = document.querySelectorAll(".dot");
 allDots[0].classList.add("dot_selected"); 
 
 
