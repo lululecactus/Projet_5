@@ -23,10 +23,10 @@ const rightArrow = document.querySelector(".arrow_right");
 const imageSlide = document.querySelector(".banner-img");
 const tagline = document.querySelector(".banner-tagline");
 const dots = document.querySelector(".dots");
+const allDots = document.querySelectorAll(".dot");
 
 // call the function when click on the arrows
 leftArrow.addEventListener('click',slidePrevious);
-
 rightArrow.addEventListener('click',slideNext); 
 
 // Create as many dots as slides in  the banner
@@ -35,8 +35,7 @@ for(let i = 0; i< slides.length; i++){
 	dotDiv.className = "dot";  
 	dots.appendChild(dotDiv); 
 }
-//select all the elements with dot class in the DOM
-const allDots = document.querySelectorAll(".dot"); 
+ 
 // add dot selected class to the elements with dot class
 allDots[0].classList.add("dot_selected"); 
 
@@ -44,13 +43,13 @@ allDots[0].classList.add("dot_selected");
 let index = 0; 
 
 // groups elements from the banners by their index
-function groupSlide(){
+function updateCurrentSlide(){
 	imageSlide.src = "./assets/images/slideshow/" + slides[index].image;
 	tagline.innerHTML = slides[index].tagLine;
 	allDots[index].classList.add("dot_selected");
 }
 // delete the dot selected on the dot
-function removeDotSelected(){
+function removeClassCss(){
 	allDots[index].classList.remove("dot_selected");
 }
 //check if we are on the last slide 
@@ -62,13 +61,13 @@ const lastSlide = slides.length-1;
 //step3 reduce the index by 1  that will make change index of image /tagline/dot
 //step4 apply the new index to the element of the slider
 function slidePrevious(){
-	removeDotSelected();
+	removeClassCss();
 	if(index === 0){
 		index = lastSlide; //if we are on the first slide make the next left click goes to the last slide 
 	}else{
 		index --;
 	};
-	groupSlide();
+	updateCurrentSlide();
 }
 
 // changing slide when click on right arrow 
@@ -77,11 +76,11 @@ function slidePrevious(){
 //step3 adding 1 to the index  that will make change index of image /tagline/dot
 //step4 apply the new index to the element of the slider
 function slideNext (){
-	removeDotSelected();
+	removeClassCss();
 	if (index === lastSlide){
 		index = 0;//if we are on the last slide make the next right click goes to the first slide 
 	}else{
 		index ++;
 	};	
-	groupSlide();
+	updateCurrentSlide();
 }
